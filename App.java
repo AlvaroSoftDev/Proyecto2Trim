@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        Scanner in = new Scanner (System.in);
+        /*Scanner in = new Scanner (System.in);
         String opcion;
         MenuPrincipal.escribir();
         // Mejor para cuando hay operaciones: opcion = Integer.parseInt(in.nextLine());
@@ -15,6 +15,8 @@ public class App {
         }
         else{
             System.out.println("Has salido.");
-        }
+        }*/
+        Reserva r1 = new Reserva(2024,5,16,10,2);
+        r1.mostrar();
     }
 }
