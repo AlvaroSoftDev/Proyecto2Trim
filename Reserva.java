@@ -35,6 +35,11 @@ public class Reserva {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Fecha: "+this.fecha+ ". Duracion: "+ this.duracion;
+    }
+
     public void mostrar(){
         System.out.println("Fecha: "+this.fecha+". Duracion: "+this.duracion);
     }

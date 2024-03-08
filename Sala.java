@@ -27,18 +27,17 @@ public class Sala {
     public boolean comprobar (Reserva res){
         Iterator iterador = reservas.iterator();
         while (iterador.hasNext()){
-            if(res==iterador){
+            if(res==iterador.next()){
                 System.out.println("Esa reserva ya está hecha.");
             }
-            return false;
+            //return false;
         }
         return true;
     }
 
-    public void listar (){
+    public void listarReservas (){
         for(Object o:reservas){
             System.out.println(o);
         }
-        //System.out.println("Nombre de la sala: " + nomSala + ", Clave de la sala: "+ claveSala);
     }
 }

@@ -23,7 +23,8 @@ public class App {
         Reserva r3 = new Reserva(2024,6,16,10,2);
         s1.añadirReserva(r1);
         s1.añadirReserva(r2);
-        s1.listar();
-        r1.mostrar();
+        s1.añadirReserva(r3);
+        s1.listarReservas();
+
     }
 }
