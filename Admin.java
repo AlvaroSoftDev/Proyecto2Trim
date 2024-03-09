@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Admin {
     protected String contraseña;
-    protected ArrayList reservas;
+    protected ArrayList departamentos;
     protected ArrayList salas;
 
     //Constructor

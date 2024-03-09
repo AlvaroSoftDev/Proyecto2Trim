@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 public class Reserva {
     protected LocalDateTime fecha;
     protected Duration duracion;
+    protected LocalDateTime fechaFin;
 
     public Reserva(int año,int mes,int dia,int horas,int duracionHoras){
 
@@ -23,6 +24,14 @@ public class Reserva {
         else{
             System.out.println("El intervalo no es correcto.");
         }
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public LocalDateTime getFechaFin() {
+        return fechaFin;
     }
 
     @Override

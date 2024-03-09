@@ -19,12 +19,11 @@ public class App {
 
         Sala s1 = new Sala("Informática","INF");
         Reserva r1 = new Reserva(2024,5,16,10,2);
-        Reserva r2 = new Reserva(2024,5,16,10,2);
+        //Reserva r2 = new Reserva(2024,5,16,10,2);
         Reserva r3 = new Reserva(2024,6,16,10,2);
         s1.añadirReserva(r1);
-        s1.añadirReserva(r2);
+        //s1.añadirReserva(r2);
         s1.añadirReserva(r3);
         s1.listarReservas();
-
     }
 }
