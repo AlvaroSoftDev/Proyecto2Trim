@@ -8,6 +8,25 @@ public class Admin {
     //Constructor
     public Admin (String contraseña){
         this.contraseña = contraseña;
+        this.departamentos = new ArrayList();
+        this.salas = new ArrayList();
     }
+
+    //Añadir departamentos
+    public void añadirDepartamento (Departamento d){
+
+    }
+
+    //Eliminar departamentos
+    public void eliminarDepartamento (Departamento d){
+
+    }
+
+    //Listar departamentos
+    public void listarDepartamentos (){
+
+    }
+
+
 
 }
