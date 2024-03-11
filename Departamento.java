@@ -1,18 +1,110 @@
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
 public class Departamento {
-    protected String clave;
-    protected String nombreDepartamento;
+    private String clave;
+    private String nombreDepartamento;
 
-    public Departamento(String clave){
-        this.clave=clave;
+    //Constructor
+    public Departamento(String nombreDepartamento, String clave) {
+        this.nombreDepartamento = nombreDepartamento;
+        this.clave = clave;
     }
 
-    /*public void AñadirReserva(DateTime fecha,Sala sala,int tiempoReserva){
+    //Métodos Get y Set de clave y nombre del departamento
+    public String getClave() {
 
+        return clave;
     }
-    public void CancelarReserva(Sala sala,DateTime fecha){
 
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    public String getNombreDepartamento() {
+        return nombreDepartamento;
+    }
+
+    public void setNombreDepartamento(String nombreDepartamento) {
+        this.nombreDepartamento = nombreDepartamento;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Nombre de Departamento: " + this.nombreDepartamento +
+                ", Clave de Departamento: " + this.clave;
+    }
+
+    /*public static void login(String claveDepartamento) throws Exception {
+        // Comprobamos si el departamento está creado por medio de su código
+        Administrador.recuperarDepartamentoPorCodigo(claveDepartamento);
+
+        Scanner in = new Scanner(System.in);
+        int n = -1;
+        while (n != 4) {
+            System.out.println("Elige una opción: ");
+            System.out.println("1. Añadir reserva");
+            System.out.println("2. Cancelar reserva");
+            System.out.println("3. Listar todas las reservas");
+            System.out.println("4. Cerrar sesión");
+
+            // Menú de opciones desde Departamento controlando las excepciones
+            try {
+                n = Integer.parseInt(in.nextLine());
+            } catch (NumberFormatException e) {
+                n = -1;
+            }
+            switch (n) {
+                case 1: {
+                    // Añadir reserva
+                    System.out.println("Introduce el año, mes, dia, hora y duración");
+                    int year = in.nextInt();
+                    int month = in.nextInt();
+                    int day = in.nextInt();
+                    int hour = in.nextInt();
+                    int duracion = in.nextInt();
+                    in.nextLine();
+                    Reserva res = new Reserva(year, month, day, hour, duracion, claveDepartamento);
+                    System.out.println("Introduce el código de la sala");
+                    String codigo = in.nextLine();
+                    Administrador.añadirReservaSalas(res, codigo);
+                    break;
+                }
+                case 2: {
+                    // Cancelar reserva
+                    System.out.println("Introduce el año, mes, dia, hora y duración");
+                    int year = in.nextInt();
+                    int month = in.nextInt();
+                    int day = in.nextInt();
+                    int hour = in.nextInt();
+                    int duracion = in.nextInt();
+                    Reserva res = new Reserva(year, month, day, hour, duracion, claveDepartamento);
+                    in.nextLine();
+                    System.out.println("Introduce el código de la sala");
+                    String codigo = in.nextLine();
+                    Administrador.cancelarReservaSalas(res, codigo);
+                    break;
+                }
+                case 3: {
+                    // Listar las reservas
+                    Administrador.listarReservasDepartamento(claveDepartamento);
+                    break;
+                }
+                case 4: {
+                    // Cerrar sesión
+                    System.out.println("Cerrando sesión");
+                    MenuPrincipal.escribir();
+                    break;
+                }
+                default: {
+                    // Opción no válida
+                    System.out.println("Opción introducida no válida.");
+                    break;
+                }
+            }
+        }
     }*/
-    public void ListarReservas(){
-    }
 }

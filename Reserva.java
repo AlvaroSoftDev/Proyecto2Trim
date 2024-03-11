@@ -1,12 +1,15 @@
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Reserva {
-    protected LocalDateTime fecha;
-    protected Duration duracion;
-    protected LocalDateTime fechaFin;
+    private LocalDateTime fecha;
+    private Duration duracion;
+    private LocalDateTime fechaFinal;
+    private String claveDepartamento;
 
-    public Reserva(int año,int mes,int dia,int horas,int duracionHoras){
+
+    public Reserva(int año,int mes,int dia,int horas,int duracionHoras,String claveDepartamento){
 
         LocalDateTime fecha1=LocalDateTime.of(año,mes,dia,horas,0,0);
         Duration d1 = Duration.ofHours(duracionHoras);
@@ -20,10 +23,12 @@ public class Reserva {
 
         if(this.fecha.plusHours(duracionHoras).getHour()<=14){
             this.duracion = d1;
+            this.fechaFinal = this.fecha.plusHours(duracionHoras);
         }
         else{
             System.out.println("El intervalo no es correcto.");
         }
+        this.claveDepartamento = claveDepartamento;
     }
 
     public LocalDateTime getFecha() {
@@ -31,13 +36,22 @@ public class Reserva {
     }
 
     public LocalDateTime getFechaFin() {
-        return fechaFin;
+        return fechaFinal;
+    }
+
+    public Duration getDuracion() {
+        return duracion;
+    }
+
+    public String getClaveDepartamento() {
+        return claveDepartamento;
     }
 
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Reserva r) {
-            return this.fecha ==  r.fecha && this.duracion==r.duracion;
+            return this.fecha.isEqual(r.fecha) && this.fechaFinal.isEqual(r.fechaFinal)
+                    && this.claveDepartamento.equals(r.claveDepartamento);
         }
         else{
             return false;
@@ -46,12 +60,10 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Fecha: "+this.fecha+ ". Duracion: "+ this.duracion;
+        DateTimeFormatter d1 = DateTimeFormatter.ofPattern("dd/MM/yyyy-hh:mm:ss a");
+        return "Reserva: " + this.fecha.format(d1) + " - " + this.fechaFinal.format(d1) + " - Departamento: " + this.claveDepartamento;
     }
 
-    public void mostrar(){
-        System.out.println("Fecha: "+this.fecha+". Duracion: "+this.duracion);
-    }
 }
 
 

@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
+
 public class Sala {
     protected String nomSala;
     protected String claveSala;
     protected ArrayList reservas;
 
-
-    //Constructor/es
-    public Sala (String nomSala, String claveSala){
+    //Constructor
+    public Sala(String nomSala, String claveSala) {
         this.nomSala = nomSala;
         this.claveSala = claveSala;
         this.reservas = new ArrayList();
     }
 
     //OTROS MÉTODOS
-    //get codigo
+    //get código
     public String getClaveSala() {
         return claveSala;
     }
@@ -25,14 +25,14 @@ public class Sala {
         return nomSala;
     }
 
-    //compararReservas
-    public boolean comprobarReserva (Reserva res){
+    //Comprobar las Reservas
+    public boolean comprobarReserva(Reserva res) {
         Iterator iterador = this.reservas.iterator();
-        while (iterador.hasNext()){
-            Reserva item = (Reserva) iterador.next();
-            if(item.getFecha().equals(res.getFecha()) ||
-            res.getFecha().isAfter(item.getFecha()) && res.getFecha().isBefore(item.getFechaFin()) ||
-            res.getFechaFin().isAfter(item.getFecha()) && res.getFechaFin().isBefore(item.getFechaFin())){
+        while (iterador.hasNext()) {
+            Reserva item = (Reserva) iterador.next(); //tengo que hacer casting porque si no me salta error
+            if (item.getFecha().equals(res.getFecha()) ||
+                    res.getFecha().isAfter(item.getFecha()) && res.getFecha().isBefore(item.getFechaFin()) ||
+                    res.getFechaFin().isAfter(item.getFecha()) && res.getFechaFin().isBefore(item.getFechaFin())) {
                 return false;  //Esa reserva ya está hecha o no se puede por condiciones establecidas
             }
         }
@@ -40,21 +40,19 @@ public class Sala {
     }
 
     //añadir reservas
-    public void añadirReserva (Reserva res){
-        if(comprobarReserva(res)){
+    public void añadirReserva(Reserva res) {
+        if (comprobarReserva(res)) {
             this.reservas.add(res);
-        }
-        else{
+        } else {
             System.out.println("Esa reserva no se puede hacer.");
         }
     }
 
     //cancelar reservas
-    public void cancelarReserva (Reserva res){
-        if(this.reservas.equals(res)){
+    public void cancelarReserva(Reserva res) {
+        if (this.reservas.equals(res)) {
             this.reservas.remove(res);
-        }
-        else{
+        } else {
             System.out.println("Esa reserva no se puede eliminar.");
         }
     }
@@ -66,12 +64,38 @@ public class Sala {
     }
 
     //Listar reservas
-    public void listarReservas (){
+    public void listarReservas() {
         toString();
         Iterator iterador = this.reservas.iterator();
-        while (iterador.hasNext()){
+        while (iterador.hasNext()) {
             Reserva item = (Reserva) iterador.next();
             System.out.println(item.toString());
+        }
     }
+
+    //Listar Reservas del Departamento
+    public void listarReservasDepartamento(String clave){
+        Iterator iterador = this.reservas.iterator();
+        while(iterador.hasNext()){
+            Reserva r1= (Reserva) iterador.next();
+            if (r1.getClaveDepartamento().equals(clave)) {
+                System.out.println(this.toString() + " - " + r1.toString());
+            }
+        }
     }
+
+    //Eliminar Reservas del Departamento
+    public void eliminarReservasDepartamento(String clave) {
+        ArrayList eliminar = new ArrayList();
+        for (Reserva r: reservas) {
+            if (r.getClaveDepartamento().equals(clave)) {
+                eliminar.add(r);
+            }
+        }
+        for (Reserva r: eliminar) {
+            reservas.remove(r);
+        }
+    }
+
+
 }
