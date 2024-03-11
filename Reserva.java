@@ -61,9 +61,13 @@ public class Reserva {
     @Override
     public String toString() {
         DateTimeFormatter d1 = DateTimeFormatter.ofPattern("dd/MM/yyyy-hh:mm:ss a");
-        return "Reserva: " + this.fecha.format(d1) + " - " + this.fechaFinal.format(d1) + " - Departamento: " + this.claveDepartamento;
+        return "Reserva: " + this.fecha.format(d1) + " - " + this.fechaFinal.format(d1) +
+                " - Departamento: " + this.claveDepartamento;
     }
 
+    public void mostrar(){
+        System.out.println("Fecha: "+this.fecha+". Duracion: "+this.duracion);
+    }
 }
 
 

@@ -2,25 +2,13 @@ import java.util.Scanner;
 
 public class MenuDepartamento {
 
-    /*public static String clave;
-    public static void escribir() {
-        Scanner in = new Scanner(System.in);
-        String claveDep;
-        System.out.println("Introduce la clave del Departamento: ");
-        claveDep = in.nextLine();
-        if (clave.equals(claveDep)) {
-            System.out.println("Elige una opción: \n1. Añadir Reserva \n" +
-                    "2. Cancelar Reserva \n3. Listar todas las reservas \n4. Cerrar Sesión");
-        }
-    }*/
-
     public static void login(String clave) throws Exception {
         // Comprobamos si el departamento está creado por medio de su código
         Admin.accesoDepartamento(clave);
 
         Scanner in = new Scanner(System.in);
-        int n = -1;
-        while (n != 4) {
+        int opcion = -1;
+        while (opcion != 4) {
             System.out.println("Elige una opción: ");
             System.out.println("1. Añadir reserva");
             System.out.println("2. Cancelar reserva");
@@ -29,11 +17,11 @@ public class MenuDepartamento {
 
             // Menú de opciones desde Departamento controlando las excepciones
             try {
-                n = Integer.parseInt(in.nextLine());
+                opcion = Integer.parseInt(in.nextLine());
             } catch (NumberFormatException e) {
-                n = -1;
+                opcion = -1;
             }
-            switch (n) {
+            switch (opcion) {
                 case 1: {
                     // Añadir reserva
                     System.out.println("Introduce el año, mes, dia, hora y duración");

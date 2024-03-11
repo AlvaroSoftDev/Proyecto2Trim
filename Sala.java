@@ -87,15 +87,13 @@ public class Sala {
     //Eliminar Reservas del Departamento
     public void eliminarReservasDepartamento(String clave) {
         ArrayList eliminar = new ArrayList();
-        for (Reserva r: reservas) {
-            if (r.getClaveDepartamento().equals(clave)) {
+        for (Object r: reservas) {
+            if (((Reserva)r).getClaveDepartamento().equals(clave)) {
                 eliminar.add(r);
             }
         }
-        for (Reserva r: eliminar) {
+        for (Object r: eliminar) {
             reservas.remove(r);
         }
     }
-
-
 }

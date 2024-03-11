@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class Admin {
     protected String contraseña;
@@ -9,7 +10,7 @@ public class Admin {
     //Accesos a Departamentos y a Salas
     public static Departamento accesoDepartamento(String clave) throws Exception {
         for (Object d: departamentos) {
-            if (d.getClave().equals(clave)) {
+            if (((Departamento)d).getClave().equals(clave)) {
                 return (Departamento) d;
             }
         }
@@ -18,7 +19,7 @@ public class Admin {
 
     public static Sala accesoSala(String clave) throws Exception {
         for (Object s: salas) {
-            if (s.getClaveSala().equals(clave)) {
+            if (((Sala)s).getClaveSala().equals(clave)) {
                 return (Sala) s;
             }
         }
@@ -50,8 +51,8 @@ public class Admin {
     public static void eliminarDepartamento(String clave) throws Exception {
         Departamento d = accesoDepartamento(clave);
         departamentos.remove(d);
-        for (Sala s: salas) {
-            s.eliminarReservasDepartamento(clave);
+        for (Object s: salas) {
+            ((Sala)s).eliminarReservasDepartamento(clave);
         }
     }
 
@@ -139,6 +140,4 @@ public class Admin {
             s1.listarReservasDepartamento(clave);
         }
     }
-
-
 }
