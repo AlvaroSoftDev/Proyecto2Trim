@@ -21,7 +21,7 @@ public class MenuAdmin {
             System.out.println("5. Añadir sala");
             System.out.println("6. Eliminar sala");
             System.out.println("7. Listar todas las reservas");
-            System.out.println("8. Cerrar sesión");
+            System.out.println("8. Cerrar sesión (Volver al menú principal)");
 
             // Seleccion de opcion con control de errores
             try {
@@ -97,8 +97,8 @@ public class MenuAdmin {
                 }
                 case 8: {
                     // Cerrar sesión
-                    System.out.println("Cierre de sesión.");
-                    MenuPrincipal.escribir();
+                    System.out.println();
+                    System.out.println("Cierre de sesión: has salido al menú principal.");
                     break;
                 }
                 default: {

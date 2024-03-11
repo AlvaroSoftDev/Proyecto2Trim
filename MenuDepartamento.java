@@ -59,8 +59,8 @@ public class MenuDepartamento {
                 }
                 case 4: {
                     // Cerrar sesión
-                    System.out.println("Cierre de sesión.");
-                    MenuPrincipal.escribir();
+                    System.out.println();
+                    System.out.println("Cierre de sesión: has salido al menú principal.");
                     break;
                 }
                 default: {
