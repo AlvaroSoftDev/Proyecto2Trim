@@ -6,7 +6,7 @@
 + Javier Medina Sanguino
 + Álvaro Guerrero Fernández
 
-![Imagen de portfolio](Proyecto%20Salas.jpg)
+![Imagen de portfolio](Diagrama_UML.PNG)
 
 Accede a este enlace si la imagen no se aprecia bien:
 
